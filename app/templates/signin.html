@@ -1,0 +1,42 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='lib/semantic-ui/dist/semantic.min.css') }}"/>
+
+<body>
+<div class="ui container">
+  <div class="ui stackable centered grid">
+    <div class="row">
+      <div class="six wide column" style="margin: 15em;">
+        <a href="{{ config['HOST_CLIENT'] }}">
+          <img class="ui image" src="{{ url_for('static', filename='images/main_banner.png') }}"
+               style="margin: 3em 0em;"/>
+        </a>
+
+        {% with errors = get_flashed_messages(category_filter=['error']) %}
+          {%- for message in errors %}
+            <div class="ui negative message">
+              <div class="header">로그인에 실패했습니다</div>
+              <p>{{ message }}</p>
+            </div>
+          {% endfor %}
+        {% endwith %}
+
+        <form action="{{ request.url }}" method="POST" class="ui form signin-form">
+          {{ form.csrf_token }}
+          <div class="field" id="user-id-field">
+            <div class="ui small input">
+              {{ form.username(placeholder="아이디") }}
+            </div>
+          </div>
+          <div class="field" id="user-password-field">
+            <div class="ui small input">
+              {{ form.password(placeholder="비밀번호") }}
+            </div>
+          </div>
+          <button type="submit" class="fluid ui primary button">로그인</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</body>

@@ -1,0 +1,22 @@
+{
+    "name": "API SERVER",
+    "authors": [
+        "Daniel Tim Lee <danieltimlee@gmail.com>"
+    ],
+    "description": "API server page",
+    "main": "server.py",
+    "moduleType": [],
+    "license": "MIT",
+    "homepage": "",
+    "private": true,
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "app/static/lib"
+    ],
+    "dependencies": {
+        "semantic-ui": "^2.2",
+        "jquery": "^2.1"
+    }
+}
